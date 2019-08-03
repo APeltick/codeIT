@@ -1,13 +1,22 @@
 // Vendors
+
 // --Bootstrap
 // ----Required
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
-// ----Components
+// ----Layout
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/utilities/display";
 @import "~bootstrap/scss/utilities/flex";
+@import "~bootstrap/scss/utilities/borders";
+@import "~bootstrap/scss/utilities/shadows";
+// ----Components
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/custom-forms";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/buttons";
 
 
 // Config
@@ -19,7 +28,9 @@
 @import "layout/reset";
 
 // Elements
-
+@import "elements/header";
 
 // Views
+// --Register
+@import "views/register/register";
 

@@ -1,10 +1,14 @@
 // Libs
-import 'jquery';
+import 'parsleyjs';
+
+// Scss
+import './scss/main.scss';
+
 
 // Elements
 
-
-// Main
-import './scss/main.scss';
+// Views
+// --Register
+import './js/views/register/register';
 
 

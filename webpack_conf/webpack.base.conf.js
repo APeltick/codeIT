@@ -102,8 +102,8 @@ module.exports = {
             contextRegExp: /\.DS_Store$/
         }),
         new webpack.ProvidePlugin({
-            // $: 'jquery',
-            // jQuery: 'jquery',
+            $: 'jquery',
+            jQuery: 'jquery',
         }),
         new MiniCssExtractPlugin({
             filename: `${PATHS.assets}/css/[name].[hash].css`
