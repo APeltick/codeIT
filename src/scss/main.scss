@@ -1,0 +1,25 @@
+// Vendors
+// --Bootstrap
+// ----Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+// ----Components
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/utilities/flex";
+
+
+// Config
+@import "config/vars";
+@import "config/mixins";
+
+//Layout
+@import "layout/base";
+@import "layout/reset";
+
+// Elements
+
+
+// Views
+
