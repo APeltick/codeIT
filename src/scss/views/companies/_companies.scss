@@ -16,6 +16,19 @@
   overflow-y: scroll;
 }
 
-.companiesLink:visited {
+.companiesTotal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 
+}
+
+.companiesTotalVal {
+  padding: rem(50);
+  font-size: rem(36);
+  border: 2px solid $dark;
+  border-radius: 50%;
+  width: rem(250);
+  height: rem(250);
 }

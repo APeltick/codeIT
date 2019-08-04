@@ -7,7 +7,7 @@ $( document ).ready( function () {
         form: $("#registerForm"),
         button: $("#registerJs"),
         serverUrl: "http://codeit.ai/codeitCandidates/serverFrontendTest/user/registration",
-        successUrl: '/companies.html',
+        successUrl: "/companies.html",
         validateOptions: {
             rules: {
                 name: {
