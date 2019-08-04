@@ -1,9 +1,8 @@
 // Libs
-import 'parsleyjs';
+import 'jquery-validation';
 
 // Scss
 import './scss/main.scss';
-
 
 // Elements
 

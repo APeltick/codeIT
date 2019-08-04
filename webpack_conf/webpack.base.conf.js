@@ -113,6 +113,12 @@ module.exports = {
             filename: './index.html',
             inject: false
         }),
+        new HtmlWebpackPlugin({
+            template: `${PATHS.src}/companies.html`,
+            filename: './companies.html',
+            // chunks: ['app'],
+            inject: false
+        }),
         new CopyWebpackPlugin([
             { from: `${PATHS.src}/img/`, to: `${PATHS.assets}/img/` },
             { from: `${PATHS.src}/static/`, to: '' },

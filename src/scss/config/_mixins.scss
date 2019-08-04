@@ -1,4 +1,4 @@
-@function rem($pixels, $context: $font-size-base) {
+@function rem($pixels, $context: $fontSizeBase) {
   @if (unitless($pixels)) {
     $pixels: $pixels * 1px;
   }
