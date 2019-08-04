@@ -13,7 +13,8 @@ const PATHS = {
 
 module.exports = {
     externals: {
-        paths: PATHS
+        paths: PATHS,
+        moment: 'moment'
     },
     entry: {
         app: PATHS.src
@@ -39,7 +40,19 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                loader: 'babel-loader',
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        // presets: ['@babel/preset-env'],
+                        plugins: ['@babel/plugin-proposal-export-default-from']
+                    }
+                },
+                // use: {
+                //     loader: 'babel-loader',
+                //     options: {
+                //         plugins: ["@babel/plugin-proposal-export-default-from"]
+                //     },
+                // },
                 exclude: ['/node_modules/']
             },
             {
@@ -123,5 +136,5 @@ module.exports = {
             { from: `${PATHS.src}/img/`, to: `${PATHS.assets}/img/` },
             { from: `${PATHS.src}/static/`, to: '' },
         ]),
-    ]
+    ],
 };

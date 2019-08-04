@@ -1,5 +1,5 @@
 'use strict';
-import Form from '../../models/FormModel';
+import Form from '../../Models/FormModel';
 
 $( document ).ready( function () {
 

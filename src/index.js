@@ -1,6 +1,7 @@
 // Libs
 import 'jquery-validation';
 
+
 // Scss
 import './scss/main.scss';
 
@@ -9,8 +10,8 @@ import './scss/main.scss';
 
 // Controllers
 // --Register
-import './js/controllers/register/register';
+import './js/Controllers/register/register';
 // --Companies
-import './js/controllers/companies/companies';
+import './js/Controllers/companies/companies';
 
 
