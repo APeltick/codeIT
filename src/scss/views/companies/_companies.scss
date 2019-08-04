@@ -1,0 +1,21 @@
+.companiesBlock {
+  background: $light;
+  padding: rem(16);
+  height: 100%;
+}
+
+.companiesTitle {
+  font-size: rem(22);
+  font-weight: bold;
+  margin-bottom: rem(16);
+
+}
+
+.companiesList {
+  max-height: rem(270);
+  overflow-y: scroll;
+}
+
+.companiesLink:visited {
+
+}

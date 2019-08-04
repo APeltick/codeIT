@@ -6,8 +6,11 @@ import './scss/main.scss';
 
 // Elements
 
-// Views
+
+// Controllers
 // --Register
-import './js/views/register/register';
+import './js/controllers/register/register';
+// --Companies
+import './js/controllers/companies/companies';
 
 

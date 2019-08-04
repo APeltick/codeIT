@@ -3,8 +3,6 @@ import Form from '../../models/FormModel';
 
 $( document ).ready( function () {
 
-    console.log(window.location);
-
     let register = new Form({
         form: $("#registerForm"),
         button: $("#registerJs"),
@@ -71,6 +69,7 @@ $( document ).ready( function () {
         e.preventDefault();
 
         if ( register.form.valid() ) {
+
             $.post({
                 url: register.serverUrl,
                 data: register.form.serialize(),
@@ -85,6 +84,7 @@ $( document ).ready( function () {
 
                 },
             });
+
         }
 
     });
