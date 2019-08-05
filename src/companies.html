@@ -23,41 +23,77 @@
             </div>
         </header>
         <section class="container">
-            <div class="row companiesRow">
+            <div class="row">
 
-                <div class="col-6">
+                <div class="col-12 col-md-6 companiesCol">
                     <div class="companiesBlock shadow rounded d-flex flex-column">
-                        <div class="companiesTitle">Total Companies</div>
-                        <div class="companiesTotal d-flex align-items-center justify-content-center">
-                            <div class="companiesTotalVal d-flex align-items-center justify-content-center"></div>
+
+                        <div class="loader">
+                            <div class="spinner-border" role="status"></div>
+                        </div>
+
+                        <div class="companiesLoaded">
+                            <div class="companiesTitle">Total Companies</div>
+                            <div class="companiesTotal d-flex align-items-center justify-content-center">
+                                <div class="companiesTotalVal d-flex align-items-center justify-content-center"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-6">
+                <div class="col-12 col-md-6 companiesCol">
                     <div class="companiesBlock shadow rounded d-flex flex-column">
-                        <div class="companiesTitle">List of Companies</div>
-                        <div class="list-group companiesList">
+                        <div class="loader">
+                            <div class="spinner-border" role="status"></div>
+                        </div>
+
+                        <div class="companiesLoaded">
+                            <div class="companiesTitle">List of Companies</div>
+                            <ul class="list-group companiesList"></ul>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <div class="row companiesRow">
+            <div class=" partnerWrap">
+                <div class="col-12 companiesCol">
+                    <div class="companiesBlock shadow rounded d-flex flex-column justify-content-between">
+                        <div class="companiesTitle d-flex justify-content-between align-items-center">
+                            <div class="companiesPartnersTitle">Companies by Location</div>
+                            <div class="sortOptions d-flex">
+                                <div class="sortItem sortPercent active" data-sort-by="value" data-sort="-">Sort Percent <i class="fas fa-sort"></i></div>
+                                <div class="sortItem sortName" data-sort-by="name" data-sort="">Sort Name <i class="fas fa-sort"></i></div>
+                            </div>
+                        </div>
+                        <div class="companiesPartners"></div>
+                    </div>
+                </div>
+            </div>
 
-                <div class="col-6">
+            <div class="row">
+
+                <div class="col-12 col-md-7 companiesCol">
                     <div class="companiesBlock shadow rounded d-flex flex-column">
-                        <div class="companiesTitle">Companies by Location</div>
-                        <div id="companiesChart" style="width: 100%; height: 100%"></div>
-                        <div class="companiesByCountry"></div>
+                        <div class="loader">
+                            <div class="spinner-border" role="status"></div>
+                        </div>
+
+                        <div class="companiesLoaded d-flex flex-column">
+                            <div class="companiesTitle d-flex justify-content-between align-items-center">
+                                <div>Companies by Location</div>
+                                <div class="back"><i class="fas fa-arrow-right"></i></div>
+                            </div>
+                            <div id="companiesChart" style="height: 480px; width: 100%"></div>
+                            <div class="list-group companiesByCountry"></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-6">
+                <div class="col-12 col-md-5 companiesCol">
                     <div class="companiesBlock shadow rounded d-flex flex-column">
-                        <div class="companiesTitle">List of Companies</div>
-                        <div class="list-group companiesList">
+                        <div class="companiesTitle d-flex justify-content-between align-items-center">
+                            <div>News</div>
+
                         </div>
                     </div>
                 </div>

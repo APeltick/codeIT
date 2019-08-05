@@ -1,5 +1,6 @@
 'use strict';
 import Form from '../../Models/FormModel';
+import { setStrongPassword } from '../../Helpers/helper';
 
 $( document ).ready( function () {
 
@@ -59,7 +60,7 @@ $( document ).ready( function () {
         }
     });
 
-    $.validator.addMethod("strongPassword", Form.setStrongPassword);
+    $.validator.addMethod("strongPassword", setStrongPassword);
 
     $('.form-control').on("focusout", function () {
         $(this).valid();

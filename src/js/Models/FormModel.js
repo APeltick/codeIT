@@ -36,14 +36,7 @@ class Form {
     }
 
 
-    static setStrongPassword( password ) {
-
-        return /^[A-Za-z0-9\d=!\-@._*]*$/.test(password) // consists of only these
-            && /[a-z]/.test(password) // has a lowercase letter
-            && /[A-Z]/.test(password) // has a uppercase letter
-            && /\d/.test(password) // has a digit
-
-    }
+    static
 
 
     processingResponse( response ) {
