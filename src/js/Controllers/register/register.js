@@ -15,7 +15,6 @@ $( document ).ready( function () {
                     required: {
                         depends: Form.required
                     },
-
                 },
                 secondname: {
                     required: {

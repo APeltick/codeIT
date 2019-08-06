@@ -1,8 +1,8 @@
 'use strict';
 
-// import Chart from 'chart.js';
 import CanvasJS from '../../Vendors/canvasjs.min';
 import Companies from '../../Models/CompaniesModel';
+import Chart from '../../Models/ChartModel';
 import { handleResize } from '../../Helpers/helper';
 
 
@@ -14,7 +14,17 @@ $( document ).ready( async function () {
         partnersContainer = $(".companiesPartners"),
         companiesByCountryContainer = $(".companiesByCountry"),
         chartContainer = $("#companiesChart"),
-        sortItem = $('.sortItem');
+        sortItem = $('.sortItem'),
+        chart = new Chart( companies.chartPoints, function( chartItem ) {
+
+            console.log(chartItem);
+            companies.displayListInCountry(
+                companiesByCountryContainer,
+                chartContainer,
+                chartItem.dataPoint.countryCode
+            );
+
+         });
 
     console.log(companies);
 
@@ -22,80 +32,23 @@ $( document ).ready( async function () {
     companies.displayList( companiesContainer );
 
 
-    $('.loader').fadeOut(250);
-    $('.spinner-border').fadeOut(250, function () {
-        $('.companiesLoaded').fadeIn(250);
+    $('.loader').fadeOut(300);
+    $('.spinner-border').fadeOut(300, function () {
+
+        $('.companiesLoaded').fadeIn(300);
+        chart.renderChart();
+
     });
-
-
-    let width = chartContainer.innerWidth();
-    console.log(width);
-    let height = chartContainer.height();
-
-    let chart = new CanvasJS.Chart("companiesChart", {
-        width: 500,
-        height: height,
-        theme: "light2", // "light1", "light2", "dark1", "dark2"
-        // exportEnabled: true,
-        // animationEnabled: true,
-        data: [{
-            click: function( chartItem ) {
-                console.log(chartItem);
-                companies.displayListInCountry(
-                    companiesByCountryContainer,
-                    chartContainer,
-                    chartItem.dataPoint.countryCode
-                );
-            },
-            type: "pie",
-            startAngle: 25,
-            toolTipContent: "<b>{label}</b>: {y}%",
-            showInLegend: false,
-            indexLabel: "{label} - {y}%",
-            indexLabelFontSize: 12,
-            indexLabelOrientation: 'horizontal',
-            indexLabelLineThickness: 1,
-            // indexLabelMaxWidth: 2,
-            dataPoints: companies.chartPoints,
-            explodeOnClick: false
-        }]
-    });
-
-    chart.render();
-
-    window.addEventListener("resize", handleResize);
-    function handleResize(  ) {
-        var w = window.innerWidth-2; // -2 accounts for the border
-        var h = window.innerHeight-2;
-        stage.canvas.width = w;
-        stage.canvas.height = h;
-        //
-        var ratio = 100/100; // 100 is the width and height of the circle content.
-        var windowRatio = w/h;
-        var scale = w/100;
-        if (windowRatio > ratio) {
-            scale = h/100;
-        }
-        // Scale up to fit width or height
-        c.scaleX= c.scaleY = scale;
-
-        // Center the shape
-        c.x = w / 2;
-        c.y = h / 2;
-
-        chart.render();
-    }
-
-    $(window).on('resize', handleResize);
 
     companiesContainer.on("click", ".list-group-item" ,function (e) {
+
         e.preventDefault();
 
         let companyName = $(this).data("company"),
-            sortItem = $('.sortItem.active'),
+            currentSort = $('.sortItem.active'),
             sort = {
-                by: sortItem.data('sort-by'),
-                direction: sortItem.data('sort')
+                by: currentSort.data('sort-by'),
+                direction: currentSort.data('sort')
             };
 
         if ( !$(".list-group-item").hasClass('active') ) {
@@ -108,10 +61,12 @@ $( document ).ready( async function () {
         $('.companiesPartnersTitle').text(`${companyName} Partners`);
 
         companies.displayPartners( partnersContainer, companyName, sort );
+
     });
 
 
     sortItem.on('click', function () {
+
         if ( $(this).data('sort') === '' ) {
             $(this).attr('data-sort', '-');
             $(this).data('sort', '-');
@@ -125,20 +80,22 @@ $( document ).ready( async function () {
             direction: $(this).data('sort')
         };
 
-        companies.displayPartners( partnersContainer, false, sort );
-
-        $('.sortItem').removeClass('active');
+        sortItem.removeClass('active');
         $(this).addClass('active');
+
+        companies.displayPartners( partnersContainer, false, sort );
 
     });
 
 
     $('.back').on("click", function () {
+
         $('.back').fadeOut(250);
 
         companiesByCountryContainer.fadeOut(250, function () {
             chartContainer.fadeIn(250);
         });
+
     });
 
 });
