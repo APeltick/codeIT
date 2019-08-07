@@ -16,60 +16,77 @@
 <body>
     <div class="page-wrap">
 
-        <header class="containerFull header">
-            <h1 class="headerTitle">ALEXANDER PELTIK</h1>
+        <header class="container-fluid header">
+            <div class="row justify-content-center">
+                <h1 class="headerTitle align-self-center">ALEXANDER PELTIK</h1>
+            </div>
         </header>
-        <section class="containerBase">
+        <section class="container">
+            <div class="row">
 
-            <div class="companiesBlock">
-                <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+                <div class="col-12 col-lg-6  companiesCol">
+                    <div class="companiesBlock shadow rounded d-flex flex-column">
 
-                <div class="companiesLoaded">
-                    <div class="companiesTitle">Total Companies</div>
-                    <div class="companiesTotal d-flex align-items-center justify-content-center">
-                        <div class="companiesTotalVal d-flex align-items-center justify-content-center"></div>
+                        <div class="loader">
+                            <div class="spinner-border" role="status"></div>
+                        </div>
+
+                        <div class="companiesLoaded">
+                            <div class="companiesTitle">Total Companies</div>
+                            <div class="companiesTotal d-flex align-items-center justify-content-center">
+                                <div class="companiesTotalVal d-flex align-items-center justify-content-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6  companiesCol">
+                    <div class="companiesBlock shadow rounded d-flex flex-column">
+                        <div class="loader">
+                            <div class="spinner-border" role="status"></div>
+                        </div>
+
+                        <div class="companiesLoaded">
+                            <div class="companiesTitle">List of Companies</div>
+                            <ul class="list-group companiesList"></ul>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="companiesBlock">
-                <div class="loader">
-                    <div class="spinner-border" role="status"></div>
-                </div>
+            <div class=" partnerWrap">
+                <div class="col-12 companiesCol">
+                    <div class="companiesBlock shadow rounded d-flex flex-column justify-content-between">
 
-                <div class="companiesLoaded">
-                    <div class="companiesTitle">List of Companies</div>
-                    <ul class="list-group companiesList"></ul>
-                </div>
-            </div>
+                        <div class="companiesTitle d-flex justify-content-between align-items-center">
+                            <div class="companiesPartnersTitle">Companies by Location</div>
+                            <div class="sortOptions d-flex">
+                                <div class="sortItem sortPercent active" data-sort-by="value" data-sort="-">Sort Percent</div>
+                                <div class="sortItem sortName" data-sort-by="name" data-sort="">Sort Name</div>
+                            </div>
+                        </div>
+                        <div class="companiesPartners"></div>
 
-            <div class="companiesBlock">
-
-                <div class="companiesTitle d-flex justify-content-between align-items-center">
-                    <div class="companiesPartnersTitle">Companies by Location</div>
-                    <div class="sortOptions d-flex">
-                        <div class="sortItem sortPercent active" data-sort-by="value" data-sort="-">Sort Percent <i class="fas fa-sort"></i></div>
-                        <div class="sortItem sortName" data-sort-by="name" data-sort="">Sort Name <i class="fas fa-sort"></i></div>
                     </div>
                 </div>
-                <div class="companiesPartners"></div>
-
             </div>
 
             <div class="row">
 
-                <div class="col-12 col-md-7 companiesCol">
+                <div class="col-12 col-xl-6 companiesCol">
                     <div class="companiesBlock shadow rounded d-flex flex-column">
-                        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+                        <div class="loader">
+                            <div class="spinner-border" role="status"></div>
+                        </div>
 
                         <div class="companiesLoaded ">
                             <div class="d-flex flex-column">
                                 <div class="companiesTitle d-flex justify-content-between align-items-center">
-                                    <div class="companiesTitle">Companies by Location</div>
-                                    <div class="back"><i class="fas fa-arrow-right"></i></div>
+                                    <div>Companies by Location</div>
+                                    <div class="back">Go back</div>
                                 </div>
                                 <div class="chartWrap">
-                                    <div id="companiesChart" style="min-height: 100%; width: 100%"></div>
+                                    <div id="companiesChart"></div>
                                     <div class="list-group companiesByCountry"></div>
                                 </div>
                             </div>
@@ -77,13 +94,11 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-5 companiesCol">
+                <div class="col-12 col-xl-6 companiesCol">
                     <div class="companiesBlock shadow rounded d-flex flex-column">
-                        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
-                        <!--<div class="companiesTitle d-flex justify-content-between align-items-center">-->
-                            <!--<div>News</div>-->
-
-                        <!--</div>-->
+                        <div class="companiesTitle d-flex justify-content-between align-items-center">
+                            <div>News</div>
+                        </div>
                     </div>
                 </div>
 

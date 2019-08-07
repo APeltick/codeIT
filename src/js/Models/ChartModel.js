@@ -7,8 +7,8 @@ class Chart {
 
     constructor() {
         return this.chart = new CanvasJS.Chart("companiesChart", {
-            // width: 500,
-            // height: 300,
+            width: 400,
+            height: 300,
             theme: "light2", // "light1", "light2", "dark1", "dark2"
             responsive: true,
             percentageInnerCutout : 50,
@@ -22,6 +22,7 @@ class Chart {
                 indexLabelOrientation: 'horizontal',
                 indexLabelLineThickness: 1,
                 dataPoints: [],
+                explodeOnClick: false
             }]
         });
     }

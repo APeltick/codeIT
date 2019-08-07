@@ -1,5 +1,6 @@
 'use strict';
 
+import CanvasJS from '../Vendors/canvasjs.min';
 import { dynamicSort, calcPercents } from '../Helpers/helper'
 
 

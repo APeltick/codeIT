@@ -20,9 +20,9 @@
 @import "~bootstrap/scss/list-group";
 @import "~bootstrap/scss/spinners";
 
+// --Owl Carousel
+//@import "~owl.carousel/dist/assets/owl.carousel.css";
 
-// Material Lite - https://getmdl.io/
-@import "~material-design-lite/material.min.css";
 
 // Config
 @import "config/vars";
@@ -34,7 +34,6 @@
 
 // Elements
 @import "elements/header";
-@import "elements/form";
 
 // Views
 // --Register

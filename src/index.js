@@ -1,8 +1,7 @@
 // Libs
 import 'jquery-validation';
-import 'material-design-lite';
-import 'getmdl-select/getmdl-select.min';
-
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel';
 
 // Scss
 import './scss/main.scss';

@@ -1,9 +1,11 @@
+.companiesCol {
+  padding: rem(20);
+}
+
 .companiesBlock {
   background: $light;
   padding: rem(16);
   height: 100%;
-  box-shadow: $shadow;
-  border-radius: $border-radius;
 }
 
 .loader {
@@ -110,9 +112,9 @@
   }
 }
 
-.companiesChart {
-  overflow-x: scroll;
-  white-space: nowrap;
+#companiesChart {
+  width: 400px;
+  height: 300px;
 }
 
 .chartWrap {
@@ -121,5 +123,9 @@
 
 .canvasjs-chart-credit {
   display: none;
+}
+
+.back {
+  cursor: pointer;
 }
 

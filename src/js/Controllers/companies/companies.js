@@ -7,7 +7,6 @@ import Data from '../../Models/DataModel';
 $( document ).ready( async function () {
 
     let companiesList = await Data.getCompaniesList(),
-        newsList = await Data.getNewsList(),
         companies = new Companies( companiesList ),
         companiesContainer = $(".companiesList"),
         totalContainer = $(".companiesTotalVal"),
@@ -17,7 +16,9 @@ $( document ).ready( async function () {
         sortItem = $('.sortItem'),
         chart = new Chart();
 
-    console.log(newsList);
+    console.log(companies.chartPoints);
+
+    $('.owl-carousel').owlCarousel();
 
     companies.displayTotal( totalContainer );
     companies.displayList( companiesContainer );
@@ -31,7 +32,7 @@ $( document ).ready( async function () {
         );
     };
 
-    $('.mdl-spinner').removeClass("is-active");
+    $('.loader').fadeOut(300);
     $('.spinner-border').fadeOut(300, function () {
 
         $('.companiesLoaded').fadeIn(300);
