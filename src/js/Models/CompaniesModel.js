@@ -1,6 +1,5 @@
 'use strict';
 
-import CanvasJS from '../Vendors/canvasjs.min';
 import { dynamicSort, calcPercents } from '../Helpers/helper'
 
 
@@ -14,7 +13,11 @@ class Companies {
     }
 
 
-    getCompaniesByCountry( ) {
+    /**
+     * Group company by country for more comfort data manipulate
+     */
+
+    getCompaniesByCountry() {
         let byCountry = {};
 
         this.data.forEach(function ( company ) {
@@ -34,6 +37,13 @@ class Companies {
     }
 
 
+    /**
+     * Creates from data chart points for chart,
+     * and calculate percent
+     *
+     * @return {Array} - Array of Objects
+     */
+
     getChartPoints() {
         let chartPoints = [];
 
@@ -49,21 +59,40 @@ class Companies {
     }
 
 
-    displayList( container ) {
-        this.data.forEach( function ( company ) {
+    /**
+     * Displaying list of companies in container
+     *
+     * @param {jQuery} container
+     */
+    displayList(container) {
+        this.data.forEach( function (company) {
             container.append(`<li data-company="${company.name}" class="list-group-item list-group-item-action">${company.name}</li>`);
         } );
     }
 
 
-    displayTotal( container ) {
-        container.text( this.total );
+    /**
+     * Displaying total amount of companies in container
+     *
+     * @param {jQuery} container
+     */
+    displayTotal(container) {
+        container.text(this.total);
     }
 
 
-    displayListInCountry( container, chartContainer, countryCode ) {
+    /**
+     * Displaying list of companies in container
+     *
+     * @param {jQuery} container
+     * @param {jQuery} chartContainer
+     * @param {string} countryCode
+     *
+     */
+    displayListInCountry(container, chartContainer, countryCode) {
         let companiesInCountry = this.byCountry[countryCode].companiesInCountry;
 
+        // Reset container before render
         container.html('');
 
         companiesInCountry.forEach( function ( company ) {
@@ -77,18 +106,28 @@ class Companies {
     }
 
 
-    displayPartners( container, companyName, sort ) {
+    /**
+     * Displaying partners and sort them
+     *
+     * @param {jQuery} container
+     * @param {Object} sort
+     * @param {string} companyName
+     *
+     */
+    displayPartners(container, sort, companyName = null) {
+        // Set current company if click was on sort
         if (companyName) {
             this.currentCompany = this.data.find(function (company) {
                 return company.name === companyName;
             });
         }
 
-        this.currentCompany.partners.sort( dynamicSort( sort.direction + sort.by ) );
+        this.currentCompany.partners.sort(dynamicSort( sort.direction + sort.by ));
 
+        // Reset container before render
         container.html('');
 
-        this.currentCompany.partners.forEach(function ( partner ) {
+        this.currentCompany.partners.forEach(function (partner) {
             container.append(`
                 <div class="partner d-inline-block">
                     <div class="partnerPercent d-flex align-items-center justify-content-center">${partner.value}</div>

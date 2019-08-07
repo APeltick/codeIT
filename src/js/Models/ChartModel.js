@@ -19,7 +19,6 @@ class Chart {
                 showInLegend: false,
                 indexLabel: "{label} - {y}%",
                 indexLabelFontSize: 12,
-                indexLabelOrientation: 'horizontal',
                 indexLabelLineThickness: 1,
                 dataPoints: [],
                 explodeOnClick: false

@@ -1,7 +1,5 @@
 // Libs
 import 'jquery-validation';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel';
 
 // Scss
 import './scss/main.scss';
@@ -11,8 +9,8 @@ import './scss/main.scss';
 
 // Controllers
 // --Register
-import './js/Controllers/register/register';
+import './js/Controllers/register';
 // --Companies
-import './js/Controllers/companies/companies';
+import './js/Controllers/companies';
 
 

@@ -2,6 +2,16 @@
 
 class Form {
 
+    /**
+     * Object creation
+     *
+     * @param {jQuery} form
+     * @param {jQuery} button
+     * @param {string} serverUrl
+     * @param {string} successUrl
+     * @param {Object} validateOptions
+     */
+
     constructor({ form, button, serverUrl, successUrl, validateOptions }) {
         this.form = form;
         this.button = button;
@@ -12,7 +22,9 @@ class Form {
         );
     }
 
-
+    /**
+     * Set default settings for validator
+     */
     static getValidateDefaultSettings() {
         return {
             errorClass: "is-invalid",
@@ -23,6 +35,10 @@ class Form {
     }
 
 
+    /**
+     * Rule for check trim white spaces
+     * in form fields when it validate
+     */
     static required() {
         $(this).val( $.trim( $(this).val() ) );
 
@@ -30,6 +46,11 @@ class Form {
     }
 
 
+    /**
+     * Check kind of response
+     *
+     *  @param {Object} response
+     */
     processingResponse(response) {
         if ( response.status === "Error" || response.status === "Error" ) {
             this.processingError( response );
@@ -39,6 +60,11 @@ class Form {
     }
 
 
+    /**
+     * Error handler
+     *
+     *  @param {Object} response
+     */
     processingError(response) {
         if ( response.status === "Form Error" ) {
             this.validator.showErrors({
@@ -61,7 +87,9 @@ class Form {
         }
     }
 
-
+    /**
+     * Error handler for bad situations :(
+     */
     processingServerErrors() {
         this.button
             .siblings(".invalid-feedback")
@@ -69,6 +97,9 @@ class Form {
             .fadeIn();
     }
 
+    /**
+     * Redirect if form pass all validations
+     */
     successRedirection() {
         window.location.replace( this.successUrl );
     }

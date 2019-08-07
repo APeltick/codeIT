@@ -1,6 +1,6 @@
 'use strict';
-import Form from '../../Models/FormModel';
-import { setStrongPassword } from '../../Helpers/helper';
+import Form from '../Models/FormModel';
+import { setStrongPassword } from '../Helpers/helper';
 
 $( document ).ready( function () {
 
