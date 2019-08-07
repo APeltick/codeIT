@@ -29,10 +29,10 @@ module.exports = {
             cacheGroups: {
                 vendor: {
                     name: 'vendors',
-                    test: /node_modules/,
+                    test: /node_modules|Vendors/,
                     chunks: 'all',
                     enforce: true
-                }
+                },
             }
         }
     },

@@ -1,5 +1,7 @@
 // Libs
 import 'jquery-validation';
+import 'material-design-lite';
+import 'getmdl-select/getmdl-select.min';
 
 
 // Scss

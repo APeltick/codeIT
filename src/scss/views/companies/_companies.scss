@@ -1,11 +1,9 @@
-.companiesCol {
-  padding: rem(20);
-}
-
 .companiesBlock {
   background: $light;
   padding: rem(16);
   height: 100%;
+  box-shadow: $shadow;
+  border-radius: $border-radius;
 }
 
 .loader {
@@ -117,6 +115,11 @@
   white-space: nowrap;
 }
 
+.chartWrap {
+  min-height: 100%;
+}
+
 .canvasjs-chart-credit {
   display: none;
 }
+

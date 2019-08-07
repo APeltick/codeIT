@@ -15,11 +15,6 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
         ]
     },
     plugins: [
-        new ImageminPlugin({
-            test: /\.(jpe?g|png|gif|svg)$/i,
-            pngquant: ({quality: 50}),
-            plugins: [imageminMozjpeg({quality: 50})]
-        }),
         new CleanWebpackPlugin(),
     ]
 });

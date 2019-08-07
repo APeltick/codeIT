@@ -8,16 +8,17 @@ class Form {
         this.serverUrl = serverUrl;
         this.successUrl = window.location.origin + successUrl;
         this.validator = form.validate(
-            { ...Form.getValidateSettings(), ...validateOptions }
+            { ...Form.getValidateDefaultSettings(), ...validateOptions }
         );
     }
 
 
-    static getValidateSettings() {
+    static getValidateDefaultSettings() {
         return {
             errorClass: "is-invalid",
             errorPlacement: function( error, element ) {
-                element.siblings(".invalid-feedback").html(error);
+                element.parents('.formField').addClass('is-invalid');
+                element.siblings(".mdl-textfield__error").html(error);
             }
         }
     }
@@ -31,8 +32,9 @@ class Form {
 
 
     processingResponse(response) {
-        if ( response.status === "Form Error" || response.message === "Error" ) {
-            this.processingError( response );
+        if (response.status === "Error" || response.status === "Form Error") {
+
+            this.processingError(response);
         } else {
             this.successRedirection();
         }
@@ -40,21 +42,21 @@ class Form {
 
 
     processingError(response) {
-        if ( response.status === "Form Error" ) {
+        if (response.status === "Form Error") {
             this.validator.showErrors({
                 [response.field]: response.message
             });
-        } else if ( response.status === "Error" ) {
+        } else if (response.status === "Error") {
             // TODO: I think that error 'Email already exists' must be in validation errors
             const emailError = "Creating user error. Email already exists.";
 
-            if ( response.message === emailError ) {
+            if (response.message === emailError) {
                 this.validator.showErrors({
                     email: response.message
                 });
             } else {
                 this.button
-                    .siblings('.invalid-feedback')
+                    .siblings('.mdl-textfield__error')
                     .html(response.message)
                     .fadeIn();
             }
@@ -64,7 +66,7 @@ class Form {
 
     processingServerErrors() {
         this.button
-            .siblings(".invalid-feedback")
+            .siblings(".mdl-textfield__error")
             .html("Something went wrong, please notify us on email example@gmail.com")
             .fadeIn();
     }

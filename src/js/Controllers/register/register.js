@@ -34,11 +34,14 @@ $( document ).ready( function () {
                 pass: {
                     required: true,
                     strongPassword: true
+                },
+                agree: {
+                    required: true,
                 }
             },
             messages: {
                 name: {
-                    required: "Field 'name' is required",
+                    required: "Field 'Name' is required",
                 },
                 secondname: {
                     required: "Field 'Surname' is required",
@@ -54,6 +57,9 @@ $( document ).ready( function () {
                 pass: {
                     required: "Field 'Password' is required",
                     strongPassword: "Field 'Password' should contain from 3, 1 uppercase, 1 lowercase, 1 digit"
+                },
+                agree: {
+                    required: "Agree is required",
                 }
             }
         }
@@ -69,26 +75,17 @@ $( document ).ready( function () {
         e.preventDefault();
 
         if ( register.form.valid() ) {
-
             $.post({
                 url: register.serverUrl,
                 data: register.form.serialize(),
                 success: function( response ) {
-
                     register.processingResponse( response, register );
-
                 },
                 error: function() {
-
                     register.processingServerErrors();
-
                 },
             });
-
         }
-
     });
-
-
 
 });
