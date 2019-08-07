@@ -34,6 +34,9 @@ $( document ).ready( function () {
                 pass: {
                     required: true,
                     strongPassword: true
+                },
+                agree: {
+                    required: true
                 }
             },
             messages: {
@@ -54,7 +57,10 @@ $( document ).ready( function () {
                 pass: {
                     required: "Field 'Password' is required",
                     strongPassword: "Field 'Password' should contain from 3, 1 uppercase, 1 lowercase, 1 digit"
-                }
+                },
+                agree: {
+                    required: "You must agree with conditions",
+                },
             }
         }
     });

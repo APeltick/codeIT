@@ -29,6 +29,15 @@ $( document ).ready( async function () {
     };
 
 
+    //Remove loaders and show data in containers when all load
+    $('.loader').fadeOut(300);
+    $('.spinner-border').fadeOut(300, function () {
+
+        $('.companiesLoaded').fadeIn(300);
+        chart.render();
+
+    });
+
     // Listing clicks on company list and show partners block
     companiesContainer.on("click", ".list-group-item" ,function (e) {
         e.preventDefault();
